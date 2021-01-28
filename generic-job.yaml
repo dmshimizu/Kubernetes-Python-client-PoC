@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: generic
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+      - command: ["/bin/bash"]
+        args:
+        - -c
+        - >-
+            date;
+            echo "test"
+        image: python:3.7
+        name: generic
+        resources: {}
+      restartPolicy: Never
